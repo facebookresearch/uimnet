@@ -1,0 +1,80 @@
+#+TITLE: UIMNET
+This is =UIMNET= an Imagenet scale uncertanity quantification benchmark suite.
+
+* Usage
+** Setup and installation
+*** Install environment
+#+begin_src shell
+conda env create -f conda_env.yaml
+#+end_src
+*** Activate environement
+#+begin_src shell
+. ./script/setup
+#+end_src
+*** Install package in development mode
+#+begin_src shell
+pip install -e .
+#+end_src
+*** Run Unit tests
+#+begin_src shell
+pytests ./tests
+#+end_src
+** Training
+*** Single model
+#+begin_src shell
+./scripts/run_trainer.py -a ALGORITHM -m MODEL_DIR -a ARCHITECTURE -c CLUSTERING_FILE
+#+end_src
+
+#+begin_src shell
+python3 -m torch.distributed.launch --nproc_per_node=8 ./scripts/run_trainer.py -a ALGORITHM -m MODEL_DIR -a ARCHITECTURE -c CLUSTERING_FILE -d
+#+end_src
+*** Sweep over all models
+#+begin_src shell
+./run_training.py -s SWEEP_DIR
+#+end_src
+
+** Calibration
+*** Single model
+#+begin_src shell
+./scripts/run_calibrator.py -m MODEL_DIR -c CLUSTERING_FILE
+#+end_src
+
+#+begin_src shell
+python3 -m torch.distributed.launch --nproc_per_node=8 ./scripts/run_calibrator.py -m MODEL_DIR -c CLUSTERING_FILE -d
+#+end_src
+*** Sweep over all models
+#+begin_src shell
+./run_calibration.py -s SWEEP_DIR
+#+end_src
+** In-domain prediction
+*** Single model
+#+begin_src shell
+./scripts/run_predictor.py -m MODEL_DIR -c CLUSTERING_FILE
+#+end_src
+
+#+begin_src shell
+python3 -m torch.distributed.launch --nproc_per_node=8 ./scripts/run_predictor.py -m MODEL_DIR -c CLUSTERING_FILE -d
+#+end_src
+*** Sweep over all models
+#+begin_src shell
+./run_prediction.py -s SWEEP_DIR
+#+end_src
+** Ensembling
+#+begin_src shell
+./scripts/run_ensembles.py -s SWEEP_DIR
+#+end_src
+** Out-of-domain evaluation
+*** Single model
+#+begin_src shell
+./scripts/run_evaluator.py -m MODEL_DIR -c CLUSTERING_FILE --measure MEASURE
+#+end_src
+
+#+begin_src shell
+python3 -m torch.distributed.launch --nproc_per_node=8 ./scripts/run_evaluator.py -m MODEL_DIR-c CLUSTERING_FILE -d --measure MEASURE
+#+end_src
+*** Sweep over all models
+#+begin_src shell
+./scripts/run_evaluation.py -s SWEEP_DIR --measures MEASURE1 MEASURE2 ...
+#+end_src
+** License
+This source code is released under the MIT license, included [[file:LICENSE.md][Here]].

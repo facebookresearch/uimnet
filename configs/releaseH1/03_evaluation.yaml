@@ -1,0 +1,59 @@
+##
+## # Copyright (c) 2021 Facebook, inc. and its affiliates. All Rights Reserved
+##
+##
+sweep_dir: null
+output_dir: null  # subfolder. Mutable at dispatch
+temperature_mode: learned
+
+measures:
+  - Gap
+  #- Jacobian
+  - Entropy
+  - Largest
+  - Native
+
+metrics:
+  - AUC
+  - InAsIn
+  - InAsOut
+  - OutAsIn
+  - OutAsOut
+
+alpha: 0.05
+
+dataset:
+  name: ImageNat
+  partition: None # Mutable at dispatch
+  root: /checkpoint/ishmaelb/data/datasets/ILSVRC2012
+  partitions_file: null
+  equalize_partitions:  True
+
+  split: 'val'
+  seed: 42
+
+slurm:
+  preset: 'distributed_8'  # Key-value pairs below override presets.
+  time: 10
+  mem_per_gpu: '32G'
+  cpus_per_task: 5
+  partition: learnfair
+  array_parallelism: 512
+  comment: NeurIPS2021
+
+
+experiment:
+  distributed: True
+  platform: 'slurm'
+  #platform: 'debug'
+  ## ----- Mutable on the worker during distributed/device setup.
+  output_dir: null
+  seed: 42  # Workers seed
+  device: 'cuda:0'
+  rank: null
+  local_rank: null
+  world_size: null
+  dist_protocol: null
+  dist_url: null
+  # ------
+  num_workers: 5

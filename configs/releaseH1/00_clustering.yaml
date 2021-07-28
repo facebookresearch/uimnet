@@ -1,0 +1,41 @@
+##
+## # Copyright (c) 2021 Facebook, inc. and its affiliates. All Rights Reserved
+##
+##
+sweep_dir: null
+
+clustering:
+  encoder: resnet18
+  metric: euclidean
+  method: random  # [random, sorted_distances]
+  seed: 42  # Numpy clustering seed
+
+dataset:
+  name: ImageNat
+  root: /checkpoint/ishmaelb/data/datasets/ILSVRC2012
+  split: train
+  batch_size: 2048
+  seed: 42   # Dataset seed.
+
+slurm:
+  preset: distributed_8  # Key-value pairs below override presets.
+  time: 29
+  mem_per_gpu: 32G
+  cpus_per_task: 5
+  partition: devlab
+  comment: NeurIPS2021
+
+experiment:
+  distributed: True
+  platform: slurm
+
+  ## ----- Mutable on the worker.
+  seed: 42  # Workers seed
+  device: cuda:0
+  rank: null
+  local_rank: null
+  world_size: null
+  dist_protocol: null
+  dist_url: null
+  num_workers: 5
+  # ------

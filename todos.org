@@ -1,0 +1,36 @@
+#+TITLE: TODOs
+* DONE Run prepare ensembling
+* DONE Generate report including ensembles
+* DONE Fix folder structure
+* TODO Write down confusion matrix
+* TODO Go over each seed
+* TODO Cleanup
+Use ivy project search
+
+** DONE Clean-up dispatch
+** TODO Concentrate load_train_cfg functions
+** DONE Concentrate debug flags
+** TODO Concentrate equalize partitions
+** TODO Cleanup namespaces instead of lazily importing * into the parent module
+** TODO Types are all over the place
+
+* TODO Fix singularity container
+* TODO Fix checkpointing
+* TODO Add line profiler decorator
+* TODO Profile train_epoch and figure out why it is so slow
+* TODO Implement a concurrent version of image folder dataset
+* DONE Run end to end using DEBUG flag
+** DONE Start by writing down the folder structure
+** DONE Run clustering
+** DONE Run Training
+* TODO Fix the calibrator
+The calibrator checks if the model is already trained.
+If the model is trainer it proceeds with the calibration.
+Problem. David is right my API is shit. It slows down the debugging.
+The calibrator acts on a folder.
+
+Let's remember. Minimize time wasted => minimize stress => minimize time wasted.
+This is really not hard!
+
+Ok. Let's simplify. Let's run the calibrator on one folder.
+* TODO Add unit tests!!!

@@ -1,0 +1,39 @@
+##
+## # Copyright (c) 2021 Facebook, inc. and its affiliates. All Rights Reserved
+##
+##
+sweep_dir: null
+output_dir: null  # subfolder. Mutable at dispatch
+
+slurm:
+  preset: 'one_gpu'  # Key-value pairs below override presets.
+  time: 29
+  mem_per_gpu: '32G'
+  cpus_per_task: 5
+  partition: dev
+  array_parallelism: 512
+
+
+dataset:
+  name: ImageNat
+  root: /checkpoint/ishmaelb/data/datasets/ILSVRC2012
+  partitions_file: null
+  equalize_partitions:  True
+  seed: null # Mutable at dispatch
+  split: train
+
+experiment:
+  distributed: False
+  platform: 'slurm'
+  #platform: 'debug'
+  ## ----- Mutable on the worker during distributed/device setup.
+  output_dir: null
+  seed: 42  # Workers seed
+  device: 'cuda:0'
+  rank: null
+  local_rank: null
+  world_size: null
+  dist_protocol: 'env'
+  dist_url: null
+  # ------
+  num_workers: 5

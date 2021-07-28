@@ -1,0 +1,224 @@
+<!--
+-- # Copyright (c) 2021 Facebook, inc. and its affiliates. All Rights Reserved
+--
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UIMNET report.</title>
+
+  <meta name="description"
+    content="UIMNET report" />
+
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/prism/prism.css" />
+</head>
+
+<body id="top">
+  <header>
+    <h1><span class="latex">UIMNET Report</h1>
+    <p class="author">
+      DLP and MIB<br />
+      May 2021
+    </p>
+  </header>
+
+  <div class="abstract">
+    <h2>Abstract</h2>
+    <p>
+      Uncertanity detection benchmark.
+    </p>
+  </div>
+
+  <main>
+    <article>
+
+      <h2>Experimental Setup </h2>
+      <p>User: user</p>
+      <p>Date: data</p>
+      <p>Commit hash: commit_hash</p>
+
+
+      <h2>Dataset</h2>
+      <h3>Config</h3>
+      <p>TODO</p>
+      <h3>Partition</h3>
+      <h4>Dendrogram</h4>
+
+      <h2>Training</h2>
+      <h3>Config</h3>
+      <h3>Training curves</h3>
+      <h3>Evaluation curves</h3>
+
+      <h2>Calibration</h2>
+      <h3>Config</h3>
+
+      <h2>Ensembling</h2>
+      <h3>Config</h3>
+
+      <h2>In-domain evaluation</h2>
+      <table>
+<thead>
+<tr><th>                                                    </th><th>ACC@1                     </th><th>ACC@5                     </th><th>NLL                       </th><th>ECE                       </th></tr>
+</thead>
+<tbody>
+<tr><td>(&#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;eval&#x27;)       </td><td>$0.7467 \pm 0.0009 \, (3)$</td><td>$0.844 \pm 0.0006 \, (3)$ </td><td>$1.0066 \pm 0.0053 \, (3)$</td><td>$0.0436 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;train&#x27;)      </td><td>$0.9158 \pm 0.0002 \, (3)$</td><td>$0.9642 \pm 0.0003 \, (3)$</td><td>$0.3125 \pm 0.0003 \, (3)$</td><td>$0.0467 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;eval&#x27;)       </td><td>$0.7744 \pm 0.002 \, (3)$ </td><td>$0.8681 \pm 0.0007 \, (3)$</td><td>$0.8658 \pm 0.0015 \, (3)$</td><td>$0.0182 \pm 0.0018 \, (3)$</td></tr>
+<tr><td>(&#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;train&#x27;)      </td><td>$0.9065 \pm 0.0007 \, (3)$</td><td>$0.9591 \pm 0.0005 \, (3)$</td><td>$0.3625 \pm 0.0012 \, (3)$</td><td>$0.0596 \pm 0.0013 \, (3)$</td></tr>
+<tr><td>(&#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;eval&#x27;) </td><td>$0.7472 \pm 0.0012 \, (3)$</td><td>$0.8457 \pm 0.0014 \, (3)$</td><td>$0.9827 \pm 0.0041 \, (3)$</td><td>$0.0155 \pm 0.0011 \, (3)$</td></tr>
+<tr><td>(&#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;train&#x27;)</td><td>$0.8928 \pm 0.0005 \, (3)$</td><td>$0.9498 \pm 0.0001 \, (3)$</td><td>$0.4136 \pm 0.001 \, (3)$ </td><td>$0.0651 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;eval&#x27;) </td><td>$0.7509 \pm 0.0008 \, (3)$</td><td>$0.8499 \pm 0.0009 \, (3)$</td><td>$0.9706 \pm 0.0023 \, (3)$</td><td>$0.0388 \pm 0.0021 \, (3)$</td></tr>
+<tr><td>(&#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;train&#x27;)</td><td>$0.8536 \pm 0.0007 \, (3)$</td><td>$0.925 \pm 0.0006 \, (3)$ </td><td>$0.5862 \pm 0.0021 \, (3)$</td><td>$0.0885 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;ERM&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;eval&#x27;)                   </td><td>$0.7518 \pm 0.0016 \, (3)$</td><td>$0.8497 \pm 0.0001 \, (3)$</td><td>$0.9747 \pm 0.0022 \, (3)$</td><td>$0.0339 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;ERM&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;train&#x27;)                  </td><td>$0.8742 \pm 0.0007 \, (3)$</td><td>$0.9396 \pm 0.0003 \, (3)$</td><td>$0.4609 \pm 0.0016 \, (3)$</td><td>$0.0346 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;MCDropout&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;eval&#x27;)             </td><td>$0.751 \pm 0.0008 \, (3)$ </td><td>$0.8489 \pm 0.0011 \, (3)$</td><td>$0.9641 \pm 0.0008 \, (3)$</td><td>$0.0152 \pm 0.0021 \, (3)$</td></tr>
+<tr><td>(&#x27;MCDropout&#x27;, &#x27;resnet18&#x27;, &#x27;in&#x27;, &#x27;train&#x27;)            </td><td>$0.8628 \pm 0.0005 \, (3)$</td><td>$0.931 \pm 0.0005 \, (3)$ </td><td>$0.5187 \pm 0.0021 \, (3)$</td><td>$0.054 \pm 0.001 \, (3)$  </td></tr>
+</tbody>
+</table>
+
+      <h2>Out-of-domain evaluation</h2>
+      <table>
+<thead>
+<tr><th>                                                                       </th><th>value                     </th></tr>
+</thead>
+<tbody>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)         </td><td>$0.759 \pm 0.0024 \, (3)$ </td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)         </td><td>$0.7733 \pm 0.0015 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)   </td><td>$0.7576 \pm 0.001 \, (3)$ </td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)   </td><td>$0.7558 \pm 0.0003 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                     </td><td>$0.764 \pm 0.0013 \, (3)$ </td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)               </td><td>$0.7633 \pm 0.0007 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)              </td><td>$0.8225 \pm 0.0018 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)              </td><td>$0.8344 \pm 0.0035 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)        </td><td>$0.8225 \pm 0.0001 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)        </td><td>$0.8188 \pm 0.0041 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                          </td><td>$0.8127 \pm 0.0103 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                    </td><td>$0.8125 \pm 0.0059 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)       </td><td>$0.7091 \pm 0.0027 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)       </td><td>$0.7374 \pm 0.0015 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;) </td><td>$0.7084 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;) </td><td>$0.7105 \pm 0.001 \, (3)$ </td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                   </td><td>$0.7143 \pm 0.0025 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)             </td><td>$0.7154 \pm 0.0011 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)            </td><td>$0.7103 \pm 0.0023 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)            </td><td>$0.7384 \pm 0.001 \, (3)$ </td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)      </td><td>$0.7102 \pm 0.001 \, (3)$ </td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)      </td><td>$0.7117 \pm 0.0011 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                        </td><td>$0.7155 \pm 0.0029 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                  </td><td>$0.7165 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)      </td><td>$0.0754 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)      </td><td>$0.0759 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)</td><td>$0.0732 \pm 0.0011 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)</td><td>$0.0729 \pm 0.0003 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                  </td><td>$0.0757 \pm 0.0002 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)            </td><td>$0.0749 \pm 0.0003 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)           </td><td>$0.083 \pm 0.0019 \, (3)$ </td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)           </td><td>$0.0823 \pm 0.0006 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)     </td><td>$0.082 \pm 0.0009 \, (3)$ </td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)     </td><td>$0.0792 \pm 0.0005 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                       </td><td>$0.0822 \pm 0.0019 \, (3)$</td></tr>
+<tr><td>(&#x27;Entropy&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                 </td><td>$0.0813 \pm 0.0005 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)             </td><td>$0.7388 \pm 0.0022 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)             </td><td>$0.7553 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)       </td><td>$0.7389 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)       </td><td>$0.7407 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                         </td><td>$0.7446 \pm 0.0022 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                   </td><td>$0.7438 \pm 0.0005 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)                  </td><td>$0.7832 \pm 0.0016 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)                  </td><td>$0.7977 \pm 0.0036 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)            </td><td>$0.782 \pm 0.0006 \, (3)$ </td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)            </td><td>$0.7821 \pm 0.0022 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                              </td><td>$0.7774 \pm 0.0114 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                        </td><td>$0.7787 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)           </td><td>$0.7065 \pm 0.0016 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)           </td><td>$0.7358 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)     </td><td>$0.7073 \pm 0.0007 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)     </td><td>$0.7089 \pm 0.0016 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                       </td><td>$0.7126 \pm 0.0026 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                 </td><td>$0.713 \pm 0.0006 \, (3)$ </td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)                </td><td>$0.7076 \pm 0.0016 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)                </td><td>$0.7365 \pm 0.0011 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)          </td><td>$0.7082 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)          </td><td>$0.7096 \pm 0.0015 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                            </td><td>$0.7134 \pm 0.0027 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                      </td><td>$0.7139 \pm 0.0005 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)          </td><td>$0.0723 \pm 0.0003 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)          </td><td>$0.0744 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)    </td><td>$0.0728 \pm 0.0019 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)    </td><td>$0.0719 \pm 0.0003 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                      </td><td>$0.0732 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                </td><td>$0.0716 \pm 0.0002 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)               </td><td>$0.0763 \pm 0.0001 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)               </td><td>$0.0778 \pm 0.0014 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)         </td><td>$0.0767 \pm 0.0027 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)         </td><td>$0.0748 \pm 0.0007 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                           </td><td>$0.0766 \pm 0.0021 \, (3)$</td></tr>
+<tr><td>(&#x27;Gap&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                     </td><td>$0.0754 \pm 0.0004 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)         </td><td>$0.7513 \pm 0.0025 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)         </td><td>$0.7684 \pm 0.0013 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)   </td><td>$0.7525 \pm 0.0001 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)   </td><td>$0.7549 \pm 0.0008 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                     </td><td>$0.7576 \pm 0.0016 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;difficult&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)               </td><td>$0.7581 \pm 0.0003 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)              </td><td>$0.8043 \pm 0.0021 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)              </td><td>$0.8194 \pm 0.0037 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)        </td><td>$0.8051 \pm 0.001 \, (3)$ </td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)        </td><td>$0.8057 \pm 0.0034 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                          </td><td>$0.7976 \pm 0.0115 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;AUC&#x27;, &#x27;easy&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                    </td><td>$0.7996 \pm 0.0029 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)       </td><td>$0.7098 \pm 0.0025 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)       </td><td>$0.7384 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;) </td><td>$0.7099 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;) </td><td>$0.7118 \pm 0.0013 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                   </td><td>$0.7153 \pm 0.0024 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;difficult&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)             </td><td>$0.7163 \pm 0.0011 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)            </td><td>$0.7108 \pm 0.0024 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)            </td><td>$0.7394 \pm 0.0009 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)      </td><td>$0.711 \pm 0.0011 \, (3)$ </td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)      </td><td>$0.7128 \pm 0.0015 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                        </td><td>$0.7162 \pm 0.0027 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EIn&#x27;, &#x27;easy&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                  </td><td>$0.7168 \pm 0.0013 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)      </td><td>$0.0764 \pm 0.0007 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)      </td><td>$0.0769 \pm 0.0003 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)</td><td>$0.0756 \pm 0.0017 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)</td><td>$0.0748 \pm 0.0007 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                  </td><td>$0.0761 \pm 0.0011 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;difficult&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)            </td><td>$0.0762 \pm 0.0019 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=1&#x27;, &#x27;resnet18&#x27;)           </td><td>$0.0828 \pm 0.0012 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_ERM_k=3&#x27;, &#x27;resnet18&#x27;)           </td><td>$0.0827 \pm 0.0015 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=1&#x27;, &#x27;resnet18&#x27;)     </td><td>$0.0822 \pm 0.0014 \, (3)$</td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;Bagging_MCDropout_k=3&#x27;, &#x27;resnet18&#x27;)     </td><td>$0.0804 \pm 0.001 \, (3)$ </td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;ERM&#x27;, &#x27;resnet18&#x27;)                       </td><td>$0.0819 \pm 0.002 \, (3)$ </td></tr>
+<tr><td>(&#x27;Largest&#x27;, &#x27;E2EOut&#x27;, &#x27;easy&#x27;, &#x27;MCDropout&#x27;, &#x27;resnet18&#x27;)                 </td><td>$0.0816 \pm 0.001 \, (3)$ </td></tr>
+</tbody>
+</table>
+
+
+    </article>
+  </main>
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'],],
+      },
+    }
+    const toggle = document.getElementById('typeface-toggle')
+    const typeface = document.getElementById('typeface')
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('libertinus')
+      typeface.textContent = document.body.classList.contains('libertinus') ? 'Libertinus' : 'Latin Modern'
+    })
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script async src="assets/prism/prism.js"></script>
+
+  <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
+</body>
+
+</html>

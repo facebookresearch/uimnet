@@ -1,0 +1,7 @@
+[style]
+based_on_style = facebook
+indent_width = 2
+allow_multiline_dictionary_keys=True
+allow_multiline_lambdas=True
+indent_dictionary_value=True
+each_dict_entry_on_separate_line=False

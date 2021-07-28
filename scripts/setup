@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+ conda activate ui
+
+# Importing submodules
+git submodule update --init --recursive
+
+USER=$(whoami)
+if [[ $(hostname) == 'ishmaelb-mbp' ]]; then
+    CURRENT_HOST="mbp"
+elif [[ $(hostname) == *"devfair"* ]]; then
+    CURRENT_HOST="devfair"
+elif [[ $(hostname) == *"learnfair"* ]]; then
+    CURRENT_HOST="learnfair"
+else
+    CURRENT_HOST=$USER
+fi
+
+LOCAL_IMAGENET=$HOME/data/datasets/ILSVRC2012
+FAIR_IMAGENET=/checkpoint/ishmaelb/data/datasets/ILSVRC2012
+
+# Detecting host
+if [[ $CURRENT_HOST == "mbp" || $CURRENT_HOST == "lenovo" ]]; then
+    EXPERIMENTS_ROOT="$HOME/data/experiments"
+    DATASETS_ROOT="$LOCAL_IMAGENET"
+    UI_REMOTE="devfair0147"
+    UI_JUPYTER_SERVER_PORT="8100"
+    UI_VISDOM_SERVER_PORT="8200"
+    UI_HTTP_SERVER_PORT="8300"
+    UI_ROOT="${HOME}/Dropbox/Research/projects/uimnet"
+elif [[ $CURRENT_HOST == *"devfair"* ]]; then
+    EXPERIMENTS_ROOT="/checkpoint/$USER/data/experiments/"
+    DATASETS_ROOT="$FAIR_IMAGENET"
+    UI_JUPYTER_SERVER_PORT="8147"
+    UI_VISDOM_SERVER_PORT="8247"
+    UI_HTTP_SERVER_PORT="8347"
+    UI_ROOT="$HOME/work_dir/uimnet"
+elif [[ $CURRENT_HOST == *"learnfair"* ]]; then
+    EXPERIMENTS_ROOT="/checkpoint/$USER/data/experiments/uimnet"
+    DATASETS_ROOT="$FAIR_IMAGENET"
+    UI_JUPYTER_SERVER_PORT="8147"
+    UI_VISDOM_SERVER_PORT="8247"
+    UI_HTTP_SERVER_PORT="8347"
+    UI_ROOT="$HOME/work_dir/uimnet"
+else
+    EXPERIMENTS_ROOT="$HOME/data/experiments"
+    DATASETS_ROOT="$LOCAL_IMAGENET"
+    UI_JUPYTER_SERVER_PORT="8100"
+    UI_VISDOM_SERVER_PORT="8200"
+    UI_HTTP_SERVER_PORT="8300"
+    UI_ROOT="$HOME/uimnet"
+fi
+
+# Detecting project directory
+# Setting number of OpenMP threads
+
+export CURRENT_HOST
+
+export EXPERIMENTS_ROOT
+mkdir -p $EXPERIMENTS_ROOT
+export DATASETS_ROOT
+mkdir -p $DATASETS_ROOT
+export UI_ROOT
+export UI_REMOTE
+
+export UI_JUPYTER_SERVER_PORT
+export UI_VISDOM_SERVER_PORT
+export UI_HTTP_SERVER_PORT

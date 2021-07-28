@@ -1,0 +1,63 @@
+##
+## # Copyright (c) 2021 Facebook, inc. and its affiliates. All Rights Reserved
+##
+##
+sweep_dir: null
+output_dir: null  # subfolder. Mutable at dispatch
+
+dataset:
+  nseeds: 1
+  name: ImageNat
+  partition: null  # Mutable at dispatch
+  root: /checkpoint/ishmaelb/data/datasets/ILSVRC2012
+  partitions_file: null
+  equalize_partitions:  True
+  seed: null # Mutable at dispatch
+  split: train
+  batch_size: 256
+  splits_props:
+    train: 0.9
+    eval: 0.1
+
+algorithm:
+  nseeds: 2
+  name: null  # Mutable at dispatch
+  arch: null  # Mutable at dispatch
+  use_mixed_precision: True
+  seed: 42 # Mutable at dispatch
+  sn: True
+  sn_coef: 1.0
+  sn_bn: True
+
+ensemble:
+  name:
+    - Bagging
+  k:
+    - 5
+
+slurm:
+  preset: 'distributed_8'  # Key-value pairs below override presets.
+  time: 180
+  mem_per_gpu: '32G'
+  cpus_per_task: 5
+  partition: learnfair
+  array_parallelism: 512
+  comment: 'NeurIPS_2021'
+
+experiment:
+  distributed: True
+  platform: 'slurm'
+  evaluate_every: 1
+  checkpoint_every: 1
+  num_epochs: 1
+  ## ----- Mutable on the worker during distributed/device setup.
+  output_dir: null
+  seed: 42  # Workers seed
+  device: 'cuda:0'
+  rank: null
+  local_rank: null
+  world_size: null
+  dist_protocol: tcp
+  dist_url: null
+  num_workers: 5
+  # ------

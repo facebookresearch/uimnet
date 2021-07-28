@@ -1,0 +1,58 @@
+# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
+
+Bootstrap: docker
+From: index.docker.io/nvidia/cuda:11.2.2-cudnn8-devel-ubuntu18.04
+IncludeCmd: yes
+
+%setup
+# Executed in the host after completion of container's base OS installation.
+
+%files
+  # Copy files from the host system to the container
+
+%post
+  # Post container's base OS installation.
+  # This is where, library are installed, datasets are gathered, etc ...
+  apt-get update && apt-get -y upgrade
+  apt-get -y install \
+  build-essential \
+  wget \
+  bzip2 \
+  ca-certificates \
+  libglib2.0-0 \
+  libxext6 \
+  libsm6 \
+  libxrender1 \
+  git
+  # TODO(Ishmael): Add optimized image processing libraries
+
+  # Anaconda
+  CONDA_VER="4.9.2"
+  OS="Linux"
+  BUILD="x86_64"
+  wget -c https://repo.anaconda.com/miniconda/Miniconda3-py38_$CONDA_VER-$OS-$BUILD.sh
+    /bin/bash Miniconda3-py38_$CONDA_VER-$OS-$BUILD.sh -bfp /usr/local
+  echo $(pwd)
+
+  # activating environment
+  # Assuming CONDA_ENV environment variable on holds the environement file content.
+  echo $CONDA_ENV > conda_env.yml
+  conda env create -f conda_env.yml
+  conda env activate uimnet
+
+%test
+# This where we test that the container is functioning as expected before running the experiment.
+
+%environment
+# Environment variables. Not available at build time!
+
+%startscript
+
+%runscript
+# Executed when the container is ran. Arguments are passed.
+
+%labels
+# Container Metadata
+
+%help
+#Container help

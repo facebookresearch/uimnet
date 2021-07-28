@@ -1,0 +1,27 @@
+#+TITLE: Log_marginalization_from_logits
+#+AUTHOR: Mohamed Ishmael Belghazi
+
+
+* Numerically stable marginal log probabilities from logits.
+
+Consider $l: [0, 1]^\{N, M, C, H, W\} \rightarrow \RR^{N, M, K}$.
+
+Let $X_{n} = [X_{n, 1} \vdots, \dots, \vdots, X_{n, M}].
+
+This yield a conditional probability table,
+
+\begin{equation}
+ \PP(Y = y, M = m \mid X_n) = \frac{\exp(l(X_n))_{m, y}}{\sum_{y^{'}=1}^{K}} \exp(l(X_n)_{m, y^{'}}}.
+ \end{equation}
+
+Marginalizating and taking the logarithm we have,
+
+\begin{equation}
+\PP(Y = y \mid X_n) = \frac{1}{M} \sum_{m=1}^M P(Y = y, M = m \mid X_n).
+\end{equation}
+
+Taking the log we have,
+\begin{equation}
+  \log(\PP(Y = y \mid X_n)) = -\log(M) - \log(\sum_{m=1}^M \exp(l(X_n)_{m, y} -\log(Z(n, m)))),
+\end{equation}
+  where $Z(n, m) = \sum_{y^{'}=1}^{K} \exp(l(X_n)_{m, y^{'}})$.

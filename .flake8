@@ -1,0 +1,13 @@
+[flake8]
+# E111, E114: Indentation is not a multiple of four,
+# E121: continuation line under-indented for hanging indent
+# E124: closing bracket does not match visual indentation
+# E127: continuation line over-indented for visual indent
+# E129: Visually indented line with same indent as next logical line
+# E203: whitespace before ':'
+# E221: multiple spaces before operator
+# E265: block comment should start with '# '
+# E266: too many leading '#' for block comment
+# E402: Module level import not at top of file
+ignore = E111,E114,E121,E124,E127,E203,E221,E265,E266,E402
+max-line-length=80
